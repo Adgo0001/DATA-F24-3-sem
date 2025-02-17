@@ -6,21 +6,28 @@ const testButton = document.querySelector("#test");
 
 const clickMeButton = document.querySelector("#click-me")
 
-const dontClickMeButton = document.querySelector("#message").textContent = "Message";
+const resetButton = document.querySelector("#reset")
 
-testButton.addEventListener("click", () =>{
-    console.log("Hey du klikkede knappen!!!!");
-});
+const allButtons = document.querySelectorAll("button")
+
+const messageParagraph = document.querySelector("#message");
+
+
 
 let timesPressed = 0;
 
-//Add event listener to the test button 
+testButton.addEventListener("click", () =>{
+    messageParagraph.textContent = "Hey du klikkede knappen!!!!";
+});
 
+
+//Add event listener to the test button
 clickMeButton.addEventListener("click", () => {
-    console.log("Ah thank you");
+    messageParagraph.textContent = "Ah thank you";
     timesPressed += 1;
-    console.log(timesPressed);
+    messageParagraph.textContent = "Du har nu klikket på denne knap, " + timesPressed + " gange";
 })
+
 
 //If the button was pressed 1 time: Print to the console: "Please do not do that again"
 //If the button was pressed 2 times: print to the console: I told you not to do that
@@ -31,11 +38,19 @@ dontClickMeButton.addEventListener("click", () => {
 
     timesPressed += 1;
 
-    if (timesPressed == 1) {
-        console.log("Please do not do that again...")
-    } else if (timesPressed == 2) {
-        console.log("I told you not to do that!")
-    } else if (timesPressed == 3) {
-        console.log("STOP!!")
+    if (timesPressed === 1) {
+        messageParagraph.textContent = "Please do not do that again...";
+    } else if (timesPressed === 2) {
+        messageParagraph.textContent = "I told you not to do that!";
+    } else if (timesPressed === 3) {
+        messageParagraph.textContent = "STOP!!";
+    } else if (timesPressed > 3) {
+        allButtons.forEach(button => button.remove());
+        messageParagraph.textContent = "I told you not to press me!"
     }
 });
+
+resetButton.addEventListener("click", () => {
+    timesPressed = 0;
+    messageParagraph.textContent = "Gennemført!"
+})
