@@ -8,10 +8,7 @@ const userInput = document.querySelector("#userGuess");
 const resetButton = document.querySelector("#reset");
 
 const highScoreStatus = document.querySelector("#highScoreStatus")
-//Add an eventListener that takes input from the input field
-//Print something to the console
 
-//Make a random number between 1-5
 let randomNumber = Math.floor(Math.random() * 5) + 1;
 console.log("Random number: ", randomNumber);
 
