@@ -43,6 +43,7 @@ resetButton.addEventListener("click", () => {
 guessButton.addEventListener("click", () => {
     let userGuess = parseInt(userInput.value)
 
+    //(Funktionen isNaN bestemmer, om en værdi er NaN (Not-a-Number)
     if (isNaN(userGuess) || userGuess < 1 || userGuess >5) {
         messageParagraph.textContent = "Please enter a number between 1 and 5!";
         return;
@@ -71,6 +72,3 @@ guessButton.addEventListener("click", () => {
         currentScore = 0;
     }
 })
-
-
-
