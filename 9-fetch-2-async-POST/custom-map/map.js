@@ -1,0 +1,1 @@
+//Example of a higher order function that maps a single value to another value
